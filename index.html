@@ -94,11 +94,13 @@
         .plan-table td:first-child { color:#d4af37; font-weight:500; white-space:nowrap; }
 
         /* Site links */
-        .site-link { display:block; padding:14px 16px; margin:8px 0; background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.08); border-radius:8px; text-decoration:none; color:#e0ddd5; transition:border-color 0.2s; }
-        .site-link:hover { border-color:rgba(212,175,55,0.4); }
+        .site-link { display:block; padding:14px 16px; margin:8px 0; background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.08); border-radius:8px; text-decoration:none; color:#e0ddd5; transition:all 0.2s; position:relative; }
+        .site-link:hover { border-color:rgba(212,175,55,0.4); background:rgba(212,175,55,0.05); }
         .site-link .sl-name { color:#d4af37; font-weight:500; font-size:0.95rem; }
         .site-link .sl-url { color:#888; font-size:0.82rem; margin-top:2px; }
         .site-link .sl-desc { font-size:0.85rem; color:#aaa; margin-top:4px; }
+        .site-link .sl-action { display:inline-block; margin-top:8px; padding:6px 16px; background:rgba(212,175,55,0.15); border:1px solid rgba(212,175,55,0.3); border-radius:6px; color:#d4af37; font-size:0.82rem; font-weight:500; }
+        .site-link:hover .sl-action { background:rgba(212,175,55,0.25); }
 
         @media(max-width:600px) {
             .header h1 { font-size:1.5rem; }
@@ -324,6 +326,7 @@
             <div class="sl-name">&#11088; Тёмный сайт (основной)</div>
             <div class="sl-url">igor-dark-site.vercel.app</div>
             <div class="sl-desc">Тёмный + золото. Уже есть: форма заявки, SEO, OG-теги, галерея, отзывы, FAQ, видео. Готов к работе.</div>
+            <div class="sl-action">&#10148; Нажми, чтобы открыть сайт</div>
         </a>
 
         <details class="passport-panel">
@@ -338,12 +341,14 @@
             <div class="sl-name">Розовый сайт (свадебный)</div>
             <div class="sl-url">igor-wedding-site.vercel.app</div>
             <div class="sl-desc">Светлый, свадебная тема. Можно достроить до уровня тёмного.</div>
+            <div class="sl-action">&#10148; Нажми, чтобы открыть сайт</div>
         </a>
 
         <a href="https://project-267ce905-b51a-4653-b310-0cd.vercel.app" target="_blank" class="site-link">
             <div class="sl-name">Lovable сайт (React)</div>
             <div class="sl-url">project-267ce905-...vercel.app</div>
             <div class="sl-desc">Современный React/Vite. Есть анимации, но пока с фото-заглушкой. Можно достроить.</div>
+            <div class="sl-action">&#10148; Нажми, чтобы открыть сайт</div>
         </a>
 
         <p style="margin-top:12px; font-size:0.88rem; color:#aaa;">Игорь, выбери стиль, который нравится — остальное доделаем. Все сайты бесплатно размещены на Vercel.</p>
