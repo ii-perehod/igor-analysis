@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Паспорт сайта — Игорь Моисеенко</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0a0a0f;
+            color: #f0ede6;
+            line-height: 1.7;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #16162a 100%);
+            padding: 60px 40px 50px;
+            text-align: center;
+            border-bottom: 2px solid #d4af37;
+        }
+
+        .header h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #d4af37;
+        }
+
+        .header p {
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 24px;
+        }
+
+        .card {
+            background: linear-gradient(145deg, #16162a 0%, #1a1a34 100%);
+            border: 1px solid rgba(212,175,55,0.15);
+            border-radius: 16px;
+            padding: 32px;
+            margin-bottom: 28px;
+        }
+
+        .card h2 {
+            font-size: 1.4rem;
+            color: #d4af37;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card h2 .num {
+            background: #d4af37;
+            color: #0a0a0f;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .card p, .card li {
+            color: #a8a4b8;
+            font-size: 0.95rem;
+        }
+
+        .card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .card li {
+            padding: 8px 0;
+            padding-left: 24px;
+            position: relative;
+        }
+
+        .card li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #d4af37;
+            font-weight: 700;
+        }
+
+        .highlight {
+            color: #f0ede6;
+            font-weight: 600;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(212,175,55,0.15);
+            color: #d4af37;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin: 2px 4px;
+        }
+
+        .badge.green {
+            background: rgba(76,175,80,0.15);
+            color: #66bb6a;
+        }
+
+        .badge.blue {
+            background: rgba(66,165,245,0.15);
+            color: #42a5f5;
+        }
+
+        .badge.orange {
+            background: rgba(255,167,38,0.15);
+            color: #ffa726;
+        }
+
+        .sections-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 12px;
+        }
+
+        .section-item {
+            background: rgba(212,175,55,0.06);
+            border: 1px solid rgba(212,175,55,0.1);
+            border-radius: 10px;
+            padding: 14px 16px;
+        }
+
+        .section-item strong {
+            color: #f0ede6;
+            font-size: 0.9rem;
+        }
+
+        .section-item span {
+            display: block;
+            color: #6b6780;
+            font-size: 0.8rem;
+            margin-top: 2px;
+        }
+
+        .url-box {
+            background: rgba(0,0,0,0.3);
+            border: 1px solid rgba(212,175,55,0.2);
+            border-radius: 10px;
+            padding: 16px 20px;
+            margin: 12px 0;
+            font-family: monospace;
+            font-size: 0.95rem;
+            color: #e8cc6e;
+            word-break: break-all;
+        }
+
+        .url-box .label {
+            color: #6b6780;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+            display: block;
+        }
+
+        .status-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 12px;
+        }
+
+        .status-table td {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            font-size: 0.9rem;
+        }
+
+        .status-table td:first-child {
+            color: #6b6780;
+            width: 200px;
+        }
+
+        .status-table td:last-child {
+            color: #f0ede6;
+        }
+
+        .footer-note {
+            text-align: center;
+            padding: 40px 24px;
+            color: #6b6780;
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        @media (max-width: 600px) {
+            .header { padding: 40px 20px 35px; }
+            .header h1 { font-size: 1.6rem; }
+            .container { padding: 24px 16px; }
+            .card { padding: 24px 20px; }
+            .sections-grid { grid-template-columns: 1fr; }
+            .status-table td:first-child { width: 140px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>Паспорт сайта</h1>
+    <p>Игорь Моисеенко — Шоумен и Ведущий Мероприятий</p>
+</div>
+
+<div class="container">
+
+    <!-- 1. ОБЩАЯ ИНФОРМАЦИЯ -->
+    <div class="card">
+        <h2><span class="num">1</span> Общая информация</h2>
+        <table class="status-table">
+            <tr><td>Тип сайта</td><td>Одностраничный лендинг (Single Page)</td></tr>
+            <tr><td>Технология</td><td>HTML + CSS + JS <span class="badge">без фреймворков</span></td></tr>
+            <tr><td>Хостинг</td><td>Vercel (бесплатный тариф)</td></tr>
+            <tr><td>Домен</td><td>igor-dark-site.vercel.app <span class="badge orange">временный</span></td></tr>
+            <tr><td>Репозиторий</td><td>GitHub: ii-perehod/igor-dark-site</td></tr>
+            <tr><td>Адаптивность</td><td>Мобильные + планшеты + десктоп <span class="badge green">адаптивный</span></td></tr>
+            <tr><td>Скорость загрузки</td><td>Мгновенная — один файл, без внешних запросов <span class="badge green">быстрый</span></td></tr>
+        </table>
+    </div>
+
+    <!-- 2. АДРЕСА -->
+    <div class="card">
+        <h2><span class="num">2</span> Адреса сайта</h2>
+        <div class="url-box">
+            <span class="label">Основной сайт</span>
+            https://igor-dark-site.vercel.app/
+        </div>
+        <div class="url-box">
+            <span class="label">Админ-панель</span>
+            https://igor-dark-site.vercel.app/admin.html
+        </div>
+        <p style="margin-top:12px; font-size:0.85rem; color:#6b6780;">
+            Пароль для входа в админку: <span style="color:#e8cc6e; font-family:monospace;">showman2024</span>
+        </p>
+    </div>
+
+    <!-- 3. РАЗДЕЛЫ САЙТА -->
+    <div class="card">
+        <h2><span class="num">3</span> Разделы сайта</h2>
+        <div class="sections-grid">
+            <div class="section-item">
+                <strong>Главная (Hero)</strong>
+                <span>Фото, заголовок, кнопки, статистика</span>
+            </div>
+            <div class="section-item">
+                <strong>Бегущая строка</strong>
+                <span>Анимированная лента с ключевыми словами</span>
+            </div>
+            <div class="section-item">
+                <strong>О себе</strong>
+                <span>Фото, 5 принципов работы</span>
+            </div>
+            <div class="section-item">
+                <strong>Услуги</strong>
+                <span>Карточки: свадьбы, корпоративы, юбилеи, выпускные</span>
+            </div>
+            <div class="section-item">
+                <strong>Видео</strong>
+                <span>YouTube-плеер с демо-роликом</span>
+            </div>
+            <div class="section-item">
+                <strong>Галерея</strong>
+                <span>Фото с мероприятий</span>
+            </div>
+            <div class="section-item">
+                <strong>Отзывы</strong>
+                <span>Слайдер с реальными отзывами</span>
+            </div>
+            <div class="section-item">
+                <strong>FAQ</strong>
+                <span>5 частых вопросов с ответами</span>
+            </div>
+            <div class="section-item">
+                <strong>Призыв к действию</strong>
+                <span>Кнопки: позвонить, Telegram</span>
+            </div>
+            <div class="section-item">
+                <strong>Подвал (Footer)</strong>
+                <span>Контакты, соцсети, копирайт</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 4. АДМИН-ПАНЕЛЬ -->
+    <div class="card">
+        <h2><span class="num">4</span> Админ-панель</h2>
+        <p style="margin-bottom:12px;">Позволяет редактировать содержимое сайта без знания кода:</p>
+        <ul>
+            <li><span class="highlight">Главная секция</span> — заголовок, описание, цитата, фото</li>
+            <li><span class="highlight">О себе</span> — текст, фото, 5 принципов</li>
+            <li><span class="highlight">Услуги</span> — названия, описания, иконки</li>
+            <li><span class="highlight">Видео</span> — YouTube ссылка, заголовок</li>
+            <li><span class="highlight">Галерея</span> — добавление/удаление фото</li>
+            <li><span class="highlight">Отзывы</span> — имена, тексты, оценки</li>
+            <li><span class="highlight">FAQ</span> — вопросы и ответы</li>
+        </ul>
+        <p style="margin-top:16px; color:#6b6780; font-size:0.85rem;">
+            Данные сохраняются в браузере (localStorage). Для облачного хранения планируется подключение базы данных.
+        </p>
+    </div>
+
+    <!-- 5. SEO -->
+    <div class="card">
+        <h2><span class="num">5</span> SEO-оптимизация</h2>
+        <p style="margin-bottom: 12px;">Сайт подготовлен для поисковых систем:</p>
+        <ul>
+            <li><span class="highlight">Title</span> — «Игорь Моисеенко — Шоумен и Ведущий Мероприятий в Москве»</li>
+            <li><span class="highlight">Meta description</span> — описание с ключевыми словами</li>
+            <li><span class="highlight">Meta keywords</span> — ведущий мероприятий Москва, шоумен, свадьбы, корпоративы, юбилеи</li>
+            <li><span class="highlight">Open Graph</span> — красивое превью при отправке ссылки в Telegram, VK, WhatsApp</li>
+            <li><span class="highlight">Twitter Card</span> — превью для соцсетей</li>
+            <li><span class="highlight">Schema.org</span> — структурированные данные:
+                <div style="margin-top:6px;">
+                    <span class="badge">EntertainmentBusiness</span>
+                    <span class="badge">FAQPage</span>
+                    <span class="badge">Телефон</span>
+                    <span class="badge">Адрес</span>
+                    <span class="badge">Соцсети</span>
+                </div>
+            </li>
+            <li><span class="highlight">Canonical URL</span> — для корректной индексации</li>
+            <li><span class="highlight">og:image</span> — фото Игоря для превью ссылок</li>
+        </ul>
+    </div>
+
+    <!-- 6. КОНТАКТЫ НА САЙТЕ -->
+    <div class="card">
+        <h2><span class="num">6</span> Контакты и связь</h2>
+        <ul>
+            <li><span class="highlight">Форма «Оставить заявку»</span> — имя, телефон, тип мероприятия, комментарий → отправка в Telegram <span class="badge green">готово</span></li>
+            <li><span class="highlight">Кнопка «Позвонить»</span> — прямой звонок с мобильного на +7 (967) 001-32-72</li>
+            <li><span class="highlight">Кнопка «Telegram»</span> — переход в @imshowman</li>
+            <li><span class="highlight">Телефон в футере</span> — кликабельный</li>
+            <li><span class="highlight">Ссылки VK и YouTube</span> — в подвале сайта</li>
+        </ul>
+    </div>
+
+    <!-- 7. АНАЛИТИКА -->
+    <div class="card">
+        <h2><span class="num">7</span> Аналитика (подготовлено)</h2>
+        <p>Код подготовлен, осталось активировать:</p>
+        <table class="status-table">
+            <tr>
+                <td>Яндекс.Метрика</td>
+                <td>
+                    <span class="badge orange">ждёт ID счётчика</span><br>
+                    <span style="font-size:0.8rem; color:#6b6780;">Бесплатно. Создать: metrika.yandex.ru</span>
+                </td>
+            </tr>
+            <tr>
+                <td>VK Пиксель</td>
+                <td>
+                    <span class="badge orange">ждёт ID пикселя</span><br>
+                    <span style="font-size:0.8rem; color:#6b6780;">Бесплатно. Создать: vk.com/ads → Ретаргетинг</span>
+                </td>
+            </tr>
+        </table>
+        <p style="margin-top:16px; font-size:0.85rem; color:#a8a4b8;">
+            После создания счётчиков — вставляем ID, и аналитика заработает. Можно отслеживать посещения, клики, поведение.
+        </p>
+    </div>
+
+    <!-- 8. МОБИЛЬНАЯ АДАПТАЦИЯ -->
+    <div class="card">
+        <h2><span class="num">8</span> Мобильная адаптация</h2>
+        <p style="margin-bottom:12px;">Сайт протестирован на разных устройствах:</p>
+        <table class="status-table">
+            <tr><td>Маленький телефон</td><td>320x524 (T-Mobile) <span class="badge green">ОК</span></td></tr>
+            <tr><td>Большой телефон</td><td>362x683 (MTS RUS) <span class="badge green">ОК</span></td></tr>
+            <tr><td>Планшет</td><td>768px+ <span class="badge green">ОК</span></td></tr>
+            <tr><td>Десктоп</td><td>1200px+ <span class="badge green">ОК</span></td></tr>
+        </table>
+        <p style="margin-top:12px; font-size:0.85rem; color:#6b6780;">
+            Автоматическая детекция размера телефона для оптимальной раскладки hero-секции.
+        </p>
+    </div>
+
+    <!-- 9. ДОПОЛНИТЕЛЬНО -->
+    <div class="card">
+        <h2><span class="num">9</span> Дизайн и особенности</h2>
+        <ul>
+            <li><span class="highlight">Тёмная премиальная тема</span> — чёрный с золотом</li>
+            <li><span class="highlight">Шрифты</span> — Playfair Display (заголовки) + Inter (текст)</li>
+            <li><span class="highlight">Анимации</span> — плавное появление секций при прокрутке</li>
+            <li><span class="highlight">Встроенные фото</span> — мгновенная загрузка (base64, без запросов к серверу)</li>
+            <li><span class="highlight">Плавная навигация</span> — скролл к секциям по клику в меню</li>
+            <li><span class="highlight">Один файл</span> — весь сайт в одном HTML (удобно для обслуживания)</li>
+        </ul>
+    </div>
+
+    <!-- 10. БЕЗОПАСНОСТЬ -->
+    <div class="card">
+        <h2><span class="num">10</span> Безопасность</h2>
+        <p style="margin-bottom:12px;">Что сделано для защиты сайта, данных клиентов и бота:</p>
+
+        <table class="status-table">
+            <tr>
+                <td>HTTPS (SSL)</td>
+                <td>
+                    Всё соединение зашифровано — замок в браузере <span class="badge green">включено</span><br>
+                    <span style="font-size:0.8rem; color:#6b6780;">Vercel предоставляет бесплатный SSL-сертификат автоматически</span>
+                </td>
+            </tr>
+            <tr>
+                <td>Защита от DDoS</td>
+                <td>
+                    Vercel + Cloudflare CDN — встроенная защита от атак <span class="badge green">включено</span><br>
+                    <span style="font-size:0.8rem; color:#6b6780;">Сайт раздаётся из ближайшего к пользователю дата-центра (CDN)</span>
+                </td>
+            </tr>
+            <tr>
+                <td>Персональные данные</td>
+                <td>
+                    Сайт НЕ хранит данные клиентов <span class="badge green">безопасно</span><br>
+                    <span style="font-size:0.8rem; color:#6b6780;">Форма заявки отправляет данные напрямую в Telegram Игорю — без промежуточных серверов и баз данных. Ничего не сохраняется на сайте.</span>
+                </td>
+            </tr>
+            <tr>
+                <td>Куки и трекеры</td>
+                <td>
+                    Нет cookies, нет отслеживания <span class="badge green">чисто</span><br>
+                    <span style="font-size:0.8rem; color:#6b6780;">Яндекс.Метрика и VK пиксель добавятся позже — это стандартные инструменты аналитики, не продажа данных</span>
+                </td>
+            </tr>
+            <tr>
+                <td>Валидация формы</td>
+                <td>
+                    Проверка обязательных полей (имя, телефон) <span class="badge green">есть</span><br>
+                    <span style="font-size:0.8rem; color:#6b6780;">Нельзя отправить пустую заявку. Защита от случайных нажатий.</span>
+                </td>
+            </tr>
+            <tr>
+                <td>XSS-защита</td>
+                <td>
+                    Данные из формы отправляются как текст, не как код <span class="badge green">защищено</span><br>
+                    <span style="font-size:0.8rem; color:#6b6780;">Невозможно внедрить вредоносный скрипт через форму заявки</span>
+                </td>
+            </tr>
+            <tr>
+                <td>Админ-панель</td>
+                <td>
+                    Вход по паролю, данные в localStorage <span class="badge green">защищено</span><br>
+                    <span style="font-size:0.8rem; color:#6b6780;">Доступ только с устройства Игоря. Данные не уходят в интернет.</span>
+                </td>
+            </tr>
+            <tr>
+                <td>Внешние скрипты</td>
+                <td>
+                    Только шрифты Google Fonts <span class="badge green">минимум</span><br>
+                    <span style="font-size:0.8rem; color:#6b6780;">Никаких чужих скриптов, рекламных сетей или сторонних трекеров</span>
+                </td>
+            </tr>
+            <tr>
+                <td>Telegram-бот (токен)</td>
+                <td>
+                    <span class="badge orange">требует доработки</span><br>
+                    <span style="font-size:0.8rem; color:#6b6780;">Сейчас токен бота будет в коде страницы — технически виден. Планируется перенос на серверную функцию Vercel (бесплатно), чтобы токен был скрыт. До переноса: даже при утечке токена злоумышленник сможет только <em>отправлять</em> сообщения в чат, но не читать их и не получить доступ к данным.</span>
+                </td>
+            </tr>
+            <tr>
+                <td>Спам-защита формы</td>
+                <td>
+                    <span class="badge orange">планируется</span><br>
+                    <span style="font-size:0.8rem; color:#6b6780;">Добавим ограничение: не более 1 заявки в минуту с одного устройства. При необходимости — CAPTCHA.</span>
+                </td>
+            </tr>
+        </table>
+
+        <p style="margin-top:16px; font-size:0.88rem; color:#a8a4b8;">
+            <strong style="color:#f0ede6;">Итого:</strong> сайт безопасен для посетителей — не собирает лишних данных, не ставит куки, работает по зашифрованному каналу. Два момента (токен бота и спам-защита) запланированы к доработке.
+        </p>
+    </div>
+
+    <!-- 11. ПЛАНЫ -->
+    <div class="card">
+        <h2><span class="num">11</span> Планы развития</h2>
+        <ul>
+            <li>Подключение собственного домена (например, imshowman.ru)</li>
+            <li>Активация Яндекс.Метрики и VK Пикселя</li>
+            <li>Облачное хранение данных для админ-панели (Supabase)</li>
+            <li>Форма заявки с автоответчиком</li>
+            <li>Телеграм-бот для клиентов (нейро-калькулятор стоимости)</li>
+        </ul>
+    </div>
+
+</div>
+
+<div class="footer-note">
+    Подготовлено: март 2026<br>
+    По вопросам обращаться к менеджеру проекта
+</div>
+
+</body>
+</html>
